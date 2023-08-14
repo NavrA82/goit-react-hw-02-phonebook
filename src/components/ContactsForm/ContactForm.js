@@ -1,9 +1,24 @@
 import { nanoid } from 'nanoid';
+// import * as yup from 'yup';
 import { Formik, Field, Form } from 'formik';
 
 import { InputLabel, OnSubmitFormButton } from './ContactFormStyled';
 
-export const ContactForm = ({ addUserNameAndNumber, contacts }) => {
+// const userSchema = yup.object().shape({
+//   name: yup
+//     .string()
+//     .min(4, 'Too Short!')
+//     .max(20, 'Too Long!')
+//     .trim()
+//     .required('Required'),
+//   number: yup
+//     .string()
+//     .min(8, 'Too Short!')
+//     .max(20, 'Too Long!')
+//     .required('Required'),
+// });
+
+export const ContactForm = ({ addUserNameAndNumber }) => {
   return (
     <>
       <Formik
@@ -12,13 +27,14 @@ export const ContactForm = ({ addUserNameAndNumber, contacts }) => {
           id: '',
           number: '',
         }}
+        // validationSchema={userSchema}
         onSubmit={(values, action) => {
           addUserNameAndNumber({
             id: nanoid(),
             name: values.name,
             number: values.number,
           });
-          console.log(contacts);
+
           action.resetForm();
         }}
       >
@@ -39,15 +55,16 @@ export const ContactForm = ({ addUserNameAndNumber, contacts }) => {
                 borderRadius: '8px',
                 border: '2px solid #eceae254',
                 transition: 'border 0.3s ease-in-out',
-                // background: '#f6c21899',
+                background: '#f6c218',
+                // '::placeholder': { color: '#08775588' },
               }}
               onMouseEnter={e => {
-                // e.target.style.background = '#08aa31c2';
+                e.target.style.background = '#08aa31c9';
                 e.target.style.border = '2px solid #ffc218';
                 // e.target.style.placeholder.color = '#f6c218';
               }}
               onMouseLeave={e => {
-                // e.target.style.background = '#f6c21899';
+                e.target.style.background = '#f6c218';
                 e.target.style.border = '2px solid #eceae254';
                 // e.target.style.placeholder.color = '#08775588';
               }}
@@ -65,21 +82,23 @@ export const ContactForm = ({ addUserNameAndNumber, contacts }) => {
             <br />
             <Field
               style={{
+                // color: '#08aa31c2',
+                // fontWeight: '700',
                 outline: 'none',
                 padding: '8px',
                 borderRadius: '8px',
                 border: '2px solid #eceae254',
                 transition: 'border 0.3s ease-in-out',
-                // background: '#f6c21899',
+                background: '#f6c218',
                 // '::placeholder': { color: '#08775588' },
               }}
               onMouseEnter={e => {
-                // e.target.style.background = '#08aa31c2';
+                e.target.style.background = '#08aa31c9';
                 e.target.style.border = '2px solid #ffc218';
                 // e.target.style.placeholder.color = '#f6c218';
               }}
               onMouseLeave={e => {
-                // e.target.style.background = '#f6c21899';
+                e.target.style.background = '#f6c218';
                 e.target.style.border = '2px solid #eceae254';
                 // e.target.style.placeholder.color = '#08775588';
               }}

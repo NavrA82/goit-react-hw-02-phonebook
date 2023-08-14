@@ -1,22 +1,15 @@
-import {
-  ContactsListStyle,
-  DelButton,
-  WrapperContact,
-  WrapperLi,
-} from './ContactListStyled';
+import { ContactsListStyle, DelButton, WrapperLi } from './ContactListStyled';
 
-export const ContactsList = ({ filteredContacts, onDelete, id }) => {
+export const ContactsList = ({ filteredContacts, onDelete }) => {
   return (
     <>
       <ContactsListStyle>
         {filteredContacts.map(contact => (
-          <WrapperContact>
-            <WrapperLi key={contact.id}>
-              <span>{contact.name}:</span>
-              <span>{contact.number}</span>
-            </WrapperLi>
+          <WrapperLi key={contact.id}>
+            <p>{contact.name}:</p>
+            <p>{contact.number}</p>
             <DelButton onClick={() => onDelete(contact.id)}>Del</DelButton>
-          </WrapperContact>
+          </WrapperLi>
         ))}
       </ContactsListStyle>
     </>

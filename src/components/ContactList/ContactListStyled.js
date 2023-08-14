@@ -39,15 +39,11 @@ export const DelButton = styled.button`
     cursor: pointer;
   }
 `;
-export const WrapperContact = styled.div`
+
+export const WrapperLi = styled.li`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 8px;
-`;
-export const WrapperLi = styled.li`
-  display: flex;
-  flex-wrap: wrap;
   row-gap: 8px;
 `;

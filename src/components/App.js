@@ -1,4 +1,5 @@
 import { Component } from 'react';
+// import { nanoid } from 'nanoid';
 
 import { Wrapper } from './GlobalStyle';
 import { ContactForm } from './ContactsForm/ContactForm';
@@ -14,8 +15,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '+38 097 227-91-26' },
     ],
     filter: '',
-    // name: '',
-    // number: '',
   };
 
   addUserNameAndNumber = newUser => {
@@ -64,7 +63,7 @@ export class App extends Component {
         <h2>Contacts</h2>
         <Filter handleFilterChange={this.handleFilterChange} />
         <ContactsList
-          contactId={this.state.contacts}
+          // contactId={this.state.contacts}
           filteredContacts={filteredContacts}
           onDelete={this.handleDelete}
         />
