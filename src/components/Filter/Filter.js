@@ -17,7 +17,7 @@ export const Filter = ({ handleFilterChange }) => {
             // '::placeholder': { color: '#08775588' },
           }}
           onMouseEnter={e => {
-            e.target.style.background = '#08aa31c9';
+            e.target.style.background = '#00bb31';
             e.target.style.border = '2px solid #ffc218';
             // e.target.style.placeholder.color = '#f6c218';
           }}
