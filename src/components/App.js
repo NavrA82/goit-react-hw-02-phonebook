@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import { Wrapper } from './GlobalStyle';
-import { ContactForm } from './ContactForm/ContactForm';
+import { ContactForm } from './ContactsForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactsList } from './ContactList/ContactList';
 
