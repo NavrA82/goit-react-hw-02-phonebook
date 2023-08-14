@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const InputLabelFilter = styled.label`
-  max-width: 375px;
+  width: 100%;
   background-color: #08aa31c2;
   color: #f6c218;
   text-align: center;
@@ -11,7 +11,6 @@ export const InputLabelFilter = styled.label`
   flex-direction: column;
   row-gap: 8px;
   margin: 0 auto 12px auto;
-  min-width: 300px;
   padding: 12px;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
     rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,

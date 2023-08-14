@@ -36,7 +36,7 @@ img {
 }`;
 
 export const Wrapper = styled.div`
-  max-width: 340px;
+  max-width: 420px;
   background-color: #e42523;
   color: #f6c218;
   text-align: center;
