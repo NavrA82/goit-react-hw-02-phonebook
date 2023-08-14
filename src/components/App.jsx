@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { Wrapper } from './GlobalStyle';
+import { Wrapper, Inputlabel, OnSubmitFormButton } from './GlobalStyle';
 import { Formik, Field, Form } from 'formik';
 
 export class App extends Component {
@@ -22,34 +22,53 @@ export class App extends Component {
           initialValues={{
             name: '',
             id: '',
+            number: '',
           }}
           onSubmit={(values, action) => {
-            const id = nanoid();
-
-            const newContact = {
-              id,
+            this.addUser({
+              id: nanoid(),
               name: values.name,
-            };
-            this.addUser(newContact);
+              number: values.number,
+            });
             console.log(this.state.contacts);
             action.resetForm();
           }}
         >
-          <Form>
-            <label htmlFor="name">
+          <Form
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Inputlabel>
               Name
+              <br />
               <Field
                 id="name"
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required
                 placeholder="Jane Coll"
+                required
               />
-            </label>
+            </Inputlabel>
+            <Inputlabel>
+              Number
+              <br />
+              <Field
+                id="number"
+                type="tel"
+                name="number"
+                pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                placeholder="+38"
+                required
+              />
+            </Inputlabel>
 
-            <button type="submit">ADD CONTACT</button>
+            <OnSubmitFormButton type="submit">ADD CONTACT</OnSubmitFormButton>
           </Form>
         </Formik>
 
@@ -58,7 +77,11 @@ export class App extends Component {
           {this.state.contacts.map(contact => {
             // console.log(contact.id);
 
-            return <li key={contact.id}>{contact.name}</li>;
+            return (
+              <li key={contact.id}>
+                {contact.name}: {contact.number}
+              </li>
+            );
           })}
         </ul>
       </Wrapper>
