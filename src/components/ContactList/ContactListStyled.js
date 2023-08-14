@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+
 export const ContactsListStyle = styled.ul`
   max-width: 375px;
   background-color: #08aa31c2;
