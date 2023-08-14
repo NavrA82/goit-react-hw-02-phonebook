@@ -1,12 +1,24 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { Wrapper, Inputlabel, OnSubmitFormButton } from './GlobalStyle';
+import {
+  Wrapper,
+  Inputlabel,
+  OnSubmitFormButton,
+  ContactsList,
+} from './GlobalStyle';
 import { Formik, Field, Form } from 'formik';
 
 export class App extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '+38 067 459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '+38 066 443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '+38 073 645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '+38 097 227-91-26' },
+    ],
+    filter: '',
     name: '',
+    number: '',
   };
 
   addUser = newUser => {
@@ -73,7 +85,7 @@ export class App extends Component {
         </Formik>
 
         <h2>Contacts</h2>
-        <ul>
+        <ContactsList>
           {this.state.contacts.map(contact => {
             // console.log(contact.id);
 
@@ -83,7 +95,7 @@ export class App extends Component {
               </li>
             );
           })}
-        </ul>
+        </ContactsList>
       </Wrapper>
     );
   }
