@@ -1,9 +1,11 @@
 import { Component } from 'react';
-// import { nanoid } from 'nanoid';
 
 import { Wrapper } from './GlobalStyle';
+
 import { ContactForm } from './ContactsForm/ContactForm';
+
 import { Filter } from './Filter/Filter';
+
 import { ContactsList } from './ContactList/ContactList';
 
 export class App extends Component {
@@ -19,10 +21,10 @@ export class App extends Component {
 
   addUserNameAndNumber = newUser => {
     const { contacts } = this.state;
-    const filterContact = contacts.filter(
+    const filterContact = contacts.find(
       contact => contact.name === newUser.name
     );
-    if (!filterContact) {
+    if (filterContact) {
       alert(`${newUser.name} is already in contacts`);
     } else {
       this.setState(prevState => {
@@ -63,7 +65,6 @@ export class App extends Component {
         <h2>Contacts</h2>
         <Filter handleFilterChange={this.handleFilterChange} />
         <ContactsList
-          // contactId={this.state.contacts}
           filteredContacts={filteredContacts}
           onDelete={this.handleDelete}
         />

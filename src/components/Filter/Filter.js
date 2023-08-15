@@ -8,6 +8,8 @@ export const Filter = ({ handleFilterChange }) => {
         <br />
         <input
           style={{
+            color: '#08aa31c2',
+            fontWeight: '700',
             outline: 'none',
             padding: '8px',
             borderRadius: '8px',
@@ -19,11 +21,13 @@ export const Filter = ({ handleFilterChange }) => {
           onMouseEnter={e => {
             e.target.style.background = '#00bb31';
             e.target.style.border = '2px solid #ffc218';
+            e.target.style.color = '#ffc218';
             // e.target.style.placeholder.color = '#f6c218';
           }}
           onMouseLeave={e => {
             e.target.style.background = '#f6c218';
             e.target.style.border = '2px solid #eceae254';
+            e.target.style.color = '#08aa31c2';
             // e.target.style.placeholder.color = '#08775588';
           }}
           id="find_name"

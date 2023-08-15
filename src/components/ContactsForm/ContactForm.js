@@ -1,22 +1,8 @@
 import { nanoid } from 'nanoid';
-// import * as yup from 'yup';
+
 import { Formik, Field, Form } from 'formik';
 
 import { InputLabel, OnSubmitFormButton } from './ContactFormStyled';
-
-// const userSchema = yup.object().shape({
-//   name: yup
-//     .string()
-//     .min(4, 'Too Short!')
-//     .max(20, 'Too Long!')
-//     .trim()
-//     .required('Required'),
-//   number: yup
-//     .string()
-//     .min(8, 'Too Short!')
-//     .max(20, 'Too Long!')
-//     .required('Required'),
-// });
 
 export const ContactForm = ({ addUserNameAndNumber }) => {
   return (
@@ -27,7 +13,6 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
           id: '',
           number: '',
         }}
-        // validationSchema={userSchema}
         onSubmit={(values, action) => {
           addUserNameAndNumber({
             id: nanoid(),
@@ -50,6 +35,8 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
             <br />
             <Field
               style={{
+                color: '#08aa31c2',
+                fontWeight: '700',
                 outline: 'none',
                 padding: '8px',
                 borderRadius: '8px',
@@ -61,16 +48,20 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
               onMouseEnter={e => {
                 e.target.style.background = '#00bb31';
                 e.target.style.border = '2px solid #ffc218';
+                e.target.style.color = '#ffc218';
                 // e.target.style.placeholder.color = '#f6c218';
               }}
               onMouseLeave={e => {
                 e.target.style.background = '#f6c218';
                 e.target.style.border = '2px solid #eceae254';
+                e.target.style.color = '#08aa31c2';
                 // e.target.style.placeholder.color = '#08775588';
               }}
               id="name"
               type="text"
               name="name"
+              minlength="2"
+              maxlength="70"
               pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               placeholder="Jane Coll"
@@ -82,8 +73,8 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
             <br />
             <Field
               style={{
-                // color: '#08aa31c2',
-                // fontWeight: '700',
+                color: '#08aa31c2',
+                fontWeight: '700',
                 outline: 'none',
                 padding: '8px',
                 borderRadius: '8px',
@@ -95,16 +86,20 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
               onMouseEnter={e => {
                 e.target.style.background = '#00bb31';
                 e.target.style.border = '2px solid #ffc218';
+                e.target.style.color = '#ffc218';
                 // e.target.style.placeholder.color = '#f6c218';
               }}
               onMouseLeave={e => {
                 e.target.style.background = '#f6c218';
                 e.target.style.border = '2px solid #eceae254';
+                e.target.style.color = '#08aa31c2';
                 // e.target.style.placeholder.color = '#08775588';
               }}
               id="number"
               type="tel"
               name="number"
+              minlength="11"
+              maxlength="17"
               pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               placeholder="+38"
@@ -118,3 +113,19 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
     </>
   );
 };
+
+// import * as yup from 'yup';
+// const userSchema = yup.object().shape({
+//   name: yup
+//     .string()
+//     .min(4, 'Too Short!')
+//     .max(20, 'Too Long!')
+//     .trim()
+//     .required('Required'),
+//   number: yup
+//     .string()
+//     .min(8, 'Too Short!')
+//     .max(20, 'Too Long!')
+//     .required('Required'),
+// });
+// validationSchema={userSchema}
