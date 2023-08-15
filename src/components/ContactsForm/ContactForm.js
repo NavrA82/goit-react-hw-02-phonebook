@@ -43,19 +43,16 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
                 border: '2px solid #eceae254',
                 transition: 'border 0.3s ease-in-out',
                 background: '#f6c218',
-                // '::placeholder': { color: '#08775588' },
               }}
               onMouseEnter={e => {
                 e.target.style.background = '#00bb31';
                 e.target.style.border = '2px solid #ffc218';
                 e.target.style.color = '#ffc218';
-                // e.target.style.placeholder.color = '#f6c218';
               }}
               onMouseLeave={e => {
                 e.target.style.background = '#f6c218';
                 e.target.style.border = '2px solid #eceae254';
                 e.target.style.color = '#08aa31c2';
-                // e.target.style.placeholder.color = '#08775588';
               }}
               id="name"
               type="text"
@@ -98,7 +95,7 @@ export const ContactForm = ({ addUserNameAndNumber }) => {
               id="number"
               type="tel"
               name="number"
-              minlength="11"
+              minlength="16"
               maxlength="17"
               pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

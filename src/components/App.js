@@ -24,6 +24,7 @@ export class App extends Component {
     const filterContact = contacts.find(
       contact => contact.name === newUser.name
     );
+
     if (filterContact) {
       alert(`${newUser.name} is already in contacts`);
     } else {
